@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Blood Donation API
+  description: APIs for managing blood donation requirements
+  version: 1.0.0
+paths:
+  /requirements:
+    get:
+      summary: Get Blood Requirements
+      description: Retrieves the blood requirements.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+    post:
+      summary: Add Blood Requirements
+      description: Adds new blood requirements to the database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bloodType:
+                  type: string
+                amount:
+                  type: integer
+      responses:
+        '201':
+          description: Successfully added blood requirements
